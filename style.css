@@ -1,0 +1,53 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+img{
+    max-width: 100%;
+}
+
+body {
+    padding: 1rem;
+    font-family: sans-serif;
+}
+
+body h1{
+    margin-bottom: 1rem;
+    width: 100%;
+}
+
+.note {
+    width: 50%;
+    border: 5px solid black;
+    border-radius: 5px; 
+    padding: 0.25rem;
+    margin: 0.2rem;
+}
+
+#notes-body {
+    margin-top: 2rem;
+}
+
+#notes-body h2 {
+    font-size: 1.25rem;
+    
+}
+
+#notes-body li {
+    list-style-type: none;
+}
+
+#new-notes label{
+    font-size:1.5rem;
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+}
+
+#add-notes {
+    width: 70%;
+    height: 100px;
+}

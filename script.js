@@ -21,28 +21,18 @@ function clearPage () {
 function renderNotes (notes) {
   let noteString = '<ul>'
   for (const note of notes) {
-    noteString += '<h2>' + note.title + '</h2>' + '<li>' + note.body + '</li>'
+    noteString += '<div class = "note"><h2>' + note.title + '</h2>' + '<li>' + note.body + '</li></div>'
   }
   noteString += '</ul>'
   return noteString
 }
-
-// form.addEventListener('submit', function (e) {
-//   e.preventDefault()
-//   const newNote = q('#add-notes')
-//   const newNoteValue = newNote.value
-//   const noteText = 'title : example 2' 'body : ' + newNoteValue
-// function postNewNote (noteText) {
-//   return fetch('http://localhost:3000/notes/', {
-//     method: 'POST',
-//     headers: { 'Content-Type': 'application/json' },
-//     body: JSON.stringify({ noteText })
-//   })
-// }
-//  .then(clearPage)
-//  .then(renderNotes)
-// }
-// )
+function postNewNote (noteText) {
+  return fetch('http://localhost:3000/notes/', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify( noteText )
+  })
+}
 
 getAllNotes() 
   .then(notes => renderNotes(notes))
@@ -51,3 +41,18 @@ getAllNotes()
     notesSection.innerHTML = html
   })
 
+form.addEventListener('submit', function (e) {
+  e.preventDefault()
+  clearPage()
+  const newNote = q('#add-notes')
+  const newNoteValue = newNote.value
+  const noteText = { title : 'example2', body : newNoteValue }
+
+postNewNote(noteText)
+})
+// getAllNotes()
+//     .then(notes => renderNotes(notes))
+//     .then(html => {
+//     const notesSection = document.querySelector('#notes-body')
+//     notesSection.innerHTML = html
+//   })
